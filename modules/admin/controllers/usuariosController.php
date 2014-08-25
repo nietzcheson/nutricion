@@ -6,7 +6,7 @@ class usuariosController extends adminController{
 
 	public function __construct(){
 		parent::__construct();
-		$this->_usuarios = $this->loadModel("index");
+		$this->_usuarios = $this->loadModel("usuarios");
 
 	}
 
@@ -105,6 +105,102 @@ class usuariosController extends adminController{
 		$this->_view->assign("role",$permisosRole);
 		$this->_view->assign("datos",$this->_usuarios->getUsuario($id));
 		$this->_view->renderizar("permisos","usuarios");
+	}
+
+	public function crear(){
+		$this->_view->assign("titulo","Crear usuario");
+		$btnHeader = array(
+			array(
+				"titulo" => "return",
+				"enlace" => "admin/usuarios"
+			),
+
+		);
+
+		$this->_view->assign("btnHeader",$btnHeader);
+
+		$this->_view->assign("roles",$this->_usuarios->getRoles());
+
+
+		if($this->getInt("crear")==1){
+
+
+
+			$this->_view->assign("datos",$_POST);
+			$role = $this->getSql("role");
+			$estado = $this->getInt("estado");
+			$nombre_usuario = $this->getSql("nombre_usuario");
+			$usuario = $this->getTexto("usuario");
+			$email = $this->getTexto("email");
+			$passw = $this->getSql("passw");
+			$r_passw = $this->getSql("r_passw");
+
+			$errores="";
+				if ($role=="x") {
+					$errores.="Debe seleccionar el role<br>";
+				}
+				if ($nombre_usuario=="") {
+					$errores.="El Nombre Usuario está vacío<br>";
+				}
+				if ($usuario=="") {
+					$errores.="El Usuario está vacío<br>";
+				}
+				if ($email=="") {
+					$errores.="El Email está vacío<br>";
+				}
+
+				$emails = $this->_usuarios->getEmails();
+				$mailExiste = 0;
+				foreach($emails as $mail){
+					if($mail["email"]==$email){
+						$mailExiste = 1;
+					}
+
+				}
+
+				if ($mailExiste==1) {
+					$errores.="El Mail ".$email." ya existe. Debe usar otro correo electrónico para crear esta cuenta<br/>";
+				}
+
+				if ($passw=="") {
+					$errores.="El Password está vacío<br>";
+				}else{
+					if($r_passw==""){
+						$errores.="El Repetir Password está vacío<br>";
+					}else{
+						if($passw != $r_passw){
+							$errores.="Los password no son iguales<br>";
+						}
+					}
+				}
+
+				if ($errores!="") {
+					$this->_view->assign("_error",$errores);
+					$this->_view->renderizar('crear-usuario',"empresas");
+					exit;
+				}
+
+				$random = rand(1782598471,9999999999);
+				$datosEnviar = array(
+					"nombre"         =>$nombre_usuario,
+					"usuario"        =>$usuario,
+					"pass"       		=>Hash::getHash("sha1",$passw, HASH_KEY),
+					"email"      		=>$email,
+					"estado"  			 =>1,
+					"codigo" 			  =>$random
+				);
+
+				$this->_usuarios->crearUsuario($datosEnviar);
+				$this->_view->assign("_mensaje","El usuario ha sido creado");
+				$this->_view->assign("datos",$_POST="");
+				$this->_view->renderizar("crear-usuario","empresas");
+				exit();
+
+		}
+
+
+
+		$this->_view->renderizar("crear-usuario","usuarios");
 	}
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class indexModel extends Model{
+class usuariosModel extends Model{
 
 	public function __construct(){
 		parent::__construct();
@@ -39,7 +39,19 @@ class indexModel extends Model{
 		$this->_db->query("REPLACE INTO permisos_usuario SET usuario = $usuarioID, permiso = $permisoID, valor = '$valor' ");
 	}
 
-	
+	public function getRoles(){
+		$acl = $this->_db->query("SELECT * FROM roles");
+		return $acl->fetchAll();
+	}
+
+	public function crearUsuario($datosEnviar){
+		$this->insertarSQL($datosEnviar,"usuarios");
+	}
+
+	public function getEmails(){
+		$emails = $this->_db->query("SELECT email FROM usuarios");
+		return $emails->fetchAll();
+	}
 
 
 }

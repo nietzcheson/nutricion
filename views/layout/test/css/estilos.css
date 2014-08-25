@@ -1,0 +1,14 @@
+#wrap-login{
+  width: 500px;
+  margin: auto;
+}
+
+#container-login{
+  margin-top: 100px;
+}
+
+#img-logo{
+  width: 100%;
+  float: left;
+  position: relative;
+}

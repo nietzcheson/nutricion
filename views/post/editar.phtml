@@ -1,0 +1,23 @@
+<h1><?php echo $this->titulo?></h1>
+
+<div class="bloque">
+	<form id="form1" method="POST" action="" class="form">
+		<input type="hidden" name="guardar" value="1">
+		<fieldset>
+			<legend>Crear post</legend>
+			<div class="form-group">
+			    <label for="titulo">Título:</label>
+			    <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo" value="<?php if(isset($this->datos['titulo'])) echo $this->datos['titulo'];?>">
+			  </div>
+			  <div class="form-group">
+			    <label for="cuerpo">Cuerpo:</label>
+			    <textarea class="form-control" id="cuerpo" name="cuerpo"><?php if(isset($this->datos['cuerpo'])) echo $this->datos['cuerpo'];?></textarea>
+			  </div>
+			  <input type="submit" value="Guardar" class="btn btn-primary">
+
+		</fieldset>		
+	</form>
+
+</div>
+
+<p><a href="<?php echo BASE_URL;?>post/">Regresar</a></p>

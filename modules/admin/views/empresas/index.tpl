@@ -13,7 +13,7 @@
       {foreach item=empresa from=$empresas}
       <tr id="{$empresa.id}">
         <td>{$empresa.id}</td>
-        <td>{$empresa.nombre}</td>
+        <td>{$empresa.empresa}</td>
         <td class="text-right">
           <div class="btn-group">
               <a class="btn btn-default" href="{$_layoutParams.root}admin/empresas/perfil/{$empresa.id}">

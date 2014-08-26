@@ -7,6 +7,7 @@
         <th>#</th>
         <th>Nombre</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,13 @@
         {assign var=contador value= $contador + 1}
         <td>{$contador}</td>
         <td>{$empresa.nombres} {$empresa.apellidos}</td>
+        <td>
+          {if isset($empresa.nombre_empresa)!=""}
+          <span class="label label-success">
+            {$empresa.nombre_empresa}
+          </span>
+          {/if}
+        </td>
         <td class="text-right">
           <div class="btn-group">
               <a class="btn btn-default" href="{$_layoutParams.root}admin/perfil/datos/{$empresa.id}">

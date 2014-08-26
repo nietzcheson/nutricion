@@ -64,7 +64,7 @@ class empresasController extends adminController{
 				}
 
         $datosEnviar = array(
-					"nombre"         =>$nombre,
+					"empresa"         =>$nombre,
 					"email"          =>$email,
 					"telefono"       => $tel,
 					"direccion"      =>$direccion,
@@ -127,7 +127,7 @@ class empresasController extends adminController{
 
         $datosEnviar = array(
           "id"             =>$id,
-          "nombre"         =>$nombre,
+          "empresa"         =>$nombre,
           "email"          =>$email,
           "telefono"       => $tel,
           "direccion"      =>$direccion,

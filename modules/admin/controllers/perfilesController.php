@@ -10,6 +10,7 @@ class perfilesController extends adminController{
   public function index(){
     $this->_view->assign("titulo","Perfiles");
     //$this->_view->setJs(array("perfiles"));
+
     $btnHeader = array(
       array(
         "titulo" => "Crear perfil",
@@ -17,8 +18,24 @@ class perfilesController extends adminController{
       ),
 
     );
+
     $this->_view->assign("btnHeader",$btnHeader);
-    $this->_view->assign("empresas",$this->_modelo->getPerfiles());
+
+    $perfiles = $this->_modelo->getPerfiles();
+
+    $empresas = $this->_modelo->getEmpresas();
+
+    for($i=0;$i<count($perfiles);$i++){
+      if($perfiles[$i]["id_tipoperfil"]==2){
+        for($e=0;$e<count($empresas);$e++){
+          if($empresas[$e]["id"]==$perfiles[$i]["id_empresa"]){
+            $perfiles[$i]["nombre_empresa"] = $empresas[$e]["empresa"];
+          }
+        }
+      }
+    }
+
+    $this->_view->assign("empresas",$perfiles);
 
     $this->_view->renderizar("index","perfiles");
   }

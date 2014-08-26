@@ -4,7 +4,7 @@
   <input type="hidden" name="id" value="{if isset($empresa.id)}{$empresa.id}{/if}">
   <div class="form-group">
     <label for="nombreEmpresa">Nombre</label>
-    <input type="text" class="form-control input-lg" id="nombreEmpresa" placeholder="Nombre de la empresa" name="nombre" value="{if isset($empresa.nombre)}{$empresa.nombre}{/if}">
+    <input type="text" class="form-control input-lg" id="nombreEmpresa" placeholder="Nombre de la empresa" name="nombre" value="{if isset($empresa.empresa)}{$empresa.empresa}{/if}">
   </div>
   <div class="form-group">
     <label for="emailEmpresa">Email</label>

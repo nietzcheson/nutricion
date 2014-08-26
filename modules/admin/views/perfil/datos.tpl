@@ -31,7 +31,7 @@ Los campos marcados con * (asterisco) son obligatorios
       <option>Seleccione</option>
       {if isset($empresas) && count($empresas)}
         {foreach item=empresa from=$empresas}
-        <option value="{$empresa.id}" {if isset($datos.id_empresa)}{if $empresa.id== $datos.id_empresa}selected{/if}{/if}>{$empresa.nombre}</option>
+        <option value="{$empresa.id}" {if isset($datos.id_empresa)}{if $empresa.id== $datos.id_empresa}selected{/if}{/if}>{$empresa.empresa}</option>
         {/foreach}
       {/if}
     </select>

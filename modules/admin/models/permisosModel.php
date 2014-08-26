@@ -11,4 +11,14 @@ class permisosModel extends Model{
 
 		return $permisos->fetchAll(PDO::FETCH_ASSOC);
 	}
+	public function getPermiso($id_permiso){
+		$permisos = $this->_db->query("SELECT * FROM permisos WHERE id_permiso = '$id_permiso'");
+		return $permisos->fetch();
+	}
+	public function actualizarPermiso($datos){
+		$this->actualizarSQL($datos,"permisos");
+	}
+	public function crearPermiso($datos){
+		$this->insertarSQL($datos,"permisos");
+	}
 }

@@ -16,6 +16,9 @@
 	          	<td>{$permiso.permiso}</td>
 	          	<td>{$permiso.llave}</td>
 	          	<td class="text-right">
+	          		<a class="btn btn-default" href="{$_layoutParams.root}admin/permisos/editar/{$permiso.id_permiso}">
+	          			<span class="glyphicon glyphicon-wrench"></span>
+	          		</a>
 	          	</td>
 	        </tr>
 	        {/foreach}

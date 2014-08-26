@@ -359,6 +359,7 @@ class perfilController extends adminController{
     $refrescos            = $this->getInt("refrescos");
     $tipo_lacteo          = $this->getInt("tipo_lacteo");
     $cantidad_lacteo      = $this->getInt("tipo_lacteo");
+    $comentarios_sesion   = $this->getTexto("comentarios_sesion");
 
     $errores="";
       if ($peso=="") {
@@ -424,6 +425,9 @@ class perfilController extends adminController{
       if ($cantidad_lacteo=="") {
         $errores.="Seleccione la cantidad de lácteos<br>";
       }
+      if ($comentarios_sesion=="") {
+        $errores.="Los comentarios están vacío<br>";
+      }
       if ($errores!=="") {
         $this->_view->assign("_error",$errores);
         $this->_view->renderizar('crear_sesion',"perfiles");
@@ -450,6 +454,7 @@ class perfilController extends adminController{
         "refrescos"            =>$refrescos,
         "tipo_lacteo"          =>$tipo_lacteo,
         "cantidad_lacteo"      =>$cantidad_lacteo,
+        "comentarios"          =>$comentarios_sesion,
         "fecha_creacion"       =>DATE_FORMAT
       );
 
@@ -496,6 +501,7 @@ class perfilController extends adminController{
     $refrescos            = $this->getInt("refrescos");
     $tipo_lacteo          = $this->getInt("tipo_lacteo");
     $cantidad_lacteo      = $this->getInt("cantidad_lacteo");
+    $comentarios          = $this->getTexto("comentarios");
 
     $errores="";
       if ($peso=="") {
@@ -561,6 +567,9 @@ class perfilController extends adminController{
       if ($cantidad_lacteo=="x") {
         $errores.="Seleccione la cantidad de lácteos<br>";
       }
+      if ($comentarios=="") {
+        $errores.="Los comentarios están vacío<br>";
+      }
       if ($errores!=="") {
         $this->_view->assign("_error",$errores);
         $this->_view->renderizar('crear_sesion',"perfiles");
@@ -586,7 +595,8 @@ class perfilController extends adminController{
         "azucar"               =>$azucar,
         "refrescos"            =>$refrescos,
         "tipo_lacteo"          =>$tipo_lacteo,
-        "cantidad_lacteo"      =>$cantidad_lacteo
+        "cantidad_lacteo"      =>$cantidad_lacteo,
+        "comentarios"          =>$comentarios
       );
 
       $this->_modelo->actualizarSesion($datosEnviar);

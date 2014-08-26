@@ -146,8 +146,11 @@
         {/for}
       </select>
     </div>
-
-
   </div>
+  <div class="form-group col-md-12">
+    <label for="lacteos" class="col-md-12">Comentarios</label>
+    <textarea class="form-control input-lg" rows="8" cols="20" id="comentarios_sesion" name="comentarios_sesion" placeholder="Comentarios sesión" ></textarea>
+  </div>
+
   <button type="submit" class="btn btn-success btn-lg">Crear sesión</button>
 </form>

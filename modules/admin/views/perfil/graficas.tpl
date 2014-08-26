@@ -86,7 +86,8 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Peso <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/peso.png" />
+ Peso <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -101,7 +102,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Cintura <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/cintura.png" />Cintura <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -112,11 +113,10 @@
         </div>
   </div>
 </div>
-
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Porcentaje de grasa <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/p_grasa.png" />Porcentaje de grasa <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -131,7 +131,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Índice de masa <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/i_masa.png" />Índice de masa <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -146,7 +146,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Horas de sueño <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/sueno.png" />Horas de sueño <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -161,7 +161,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Café <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/cafe.png" /> Café <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -176,7 +176,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Azúcar <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/azucar.png" /> Azúcar <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -191,7 +191,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Refrescos <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/refresco.png" />Refrescos <small></small></h1>
     </div>
   </div>
   <div class="panel-body">
@@ -206,7 +206,7 @@
 <div class="panel panel-default" id="panel">
   <div class="panel-heading">
     <div class="page-header">
-      <h1>Lácteos <small></small></h1>
+      <h1><img src="{$_layoutParams.root}public/img/lacteos.png" /> Lácteos <small></small></h1>
     </div>
   </div>
   <div class="panel-body">

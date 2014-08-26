@@ -108,6 +108,14 @@ class View extends Smarty{
 		$this->assign("widgets",$this->getWidgets());
 		$this->assign("_acl",$this->_acl);
 		$this->assign("_layoutParams",$_params);
+
+		# Almacenar en seccion la ultima vista visitada con sus respectivos argumentos
+		$url = filter_input(INPUT_GET, "url",FILTER_SANITIZE_URL);
+		$url = explode("/", $url);
+		$url = array_filter($url);
+		$url = implode("/",$url);
+		Session::set("last_url",$url);
+		
 		$this->display('template.tpl');
 	}
 

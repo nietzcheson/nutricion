@@ -8,6 +8,9 @@ class empresasController extends adminController{
   }
 
   public function index(){
+    # Con esta linea en el caso de permitir el acceso, se carga el rol del usuario para posterior proceso
+    $this->_view->assign("roleX",$this->_acl->acceso('empresas_index'));
+
     $this->_view->assign("titulo","Empresas");
     $this->_view->setJs(array("empresas"));
     $btnHeader = array(
@@ -23,6 +26,8 @@ class empresasController extends adminController{
   }
 
   public function crear(){
+    $this->_view->assign("roleX",$this->_acl->acceso('empresas_crear'));
+
     $this->_view->assign("titulo","Crear empresa");
     $btnHeader = array(
       array(
@@ -85,6 +90,7 @@ class empresasController extends adminController{
   }
 
   public function perfil($id){
+    $this->_view->assign("roleX",$this->_acl->acceso('empresas_perfil'));
     $this->_view->assign("titulo","Perfil empresa");
     $btnHeader = array(
       array(
@@ -146,6 +152,7 @@ class empresasController extends adminController{
   }
 
   public function eliminar(){
+    $this->_view->assign("roleX",$this->_acl->acceso('empresas_eliminar'));
     $id = $this->getInt("id");
 
 

@@ -6,6 +6,7 @@ class nombresController extends Controller{
 	private $_nombres;
 	public function __construct(){
 		parent::__construct();
+		if(!Session::get("autenticado")){$this->redireccionar("login");}
 		$this->_nombres = $this->loadModel("nombres");
 	}
 

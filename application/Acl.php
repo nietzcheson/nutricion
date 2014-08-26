@@ -175,17 +175,40 @@ class ACL{
 				return false;
 			}
 		}
+		return true;
 	}
 
 	public function acceso($key){
 
-		if($this->permiso($key)){
-			Session::tiempo();
-			return;
-		}
+		// if($this->permiso($key)){
+		// 	Session::tiempo();
+		// 	return;
+		// }
 
-		header("location: " . BASE_URL . "error/access/5050");
-		exit;
+		// header("location: " . BASE_URL . "error/access/5050");
+		// exit;
+
+		# Se modifica la funcion de acceso, sigue las siguientes reglas:
+		# Si la llave no existe entonces se permite pasar el usuario
+		# Si la llave existe, entonces verifica si el acceso es permitido o no,
+		# restringuiendo el acceso y redireccionando a la ultima pagina cisitada.
+		# para esto ultimo se combina con variables se sesion.
+		# la last_url se carga justo antes de renderizar la vista.
+		$acceso= $this->permiso($key);
+	    if (!$acceso) {
+	    	# Se obtiene la ruta que se intenta rendedizar y compararla con la anterior
+	    	# De esta forma se evita el BUCLE
+	    	$url = filter_input(INPUT_GET, "url",FILTER_SANITIZE_URL);
+			$url = explode("/", $url);
+			$url = array_filter($url);
+			$url = implode("/",$url);
+			$ruta = Session::get("last_url");
+			if ($url!=$ruta) {
+				header("location:" . BASE_URL . Session::get("last_url"));
+			}
+			
+	    }
+	    return $this->getRole();
 	}
 
 }

@@ -4,6 +4,7 @@ class empresasController extends Controller{
   private $_modelo;
   public function __construct(){
     parent::__construct();
+    if(!Session::get("autenticado")){$this->redireccionar("login");}
     $this->_modelo = $this->loadModel("empresas");
   }
 

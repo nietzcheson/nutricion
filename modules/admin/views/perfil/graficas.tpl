@@ -75,7 +75,7 @@
           <td>{$sesion.cafe}</td>
           <td>{$sesion.azucar}</td>
           <td>{$sesion.refrescos}</td>
-          <td>{$sesion.lacteos}</td>
+          <td>{$sesion.cantidad_lacteo}</td>
         </tr>
         {/foreach}
       </tbody>
@@ -212,7 +212,7 @@
   <div class="panel-body">
     <div style="overflow:auto">
           <div>
-            <canvas id="lacteos" height="250"></canvas>
+            <canvas id="cantidad_lacteo" height="250"></canvas>
           </div>
         </div>
   </div>

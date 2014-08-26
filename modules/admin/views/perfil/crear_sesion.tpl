@@ -99,7 +99,7 @@
   </div>
 
   <div class="form-group col-md-6">
-    <label for="cafe">Cantidad de café (tasas)</label>
+    <label for="cafe">Cantidad de café (tazas)</label>
     <select class="form-control input-lg" name="cafe">
       <option value="">Seleccione</option>
       {for $cantidad=0 to 100}
@@ -113,7 +113,7 @@
     <select class="form-control input-lg" name="azucar">
       <option value="">Seleccione</option>
       {for $cantidad=0 to 500}
-        <option value="{$cantidad}" {if isset($datos.azucar)}{if $datos.azucar==$cantidad}selected{/if}{/if}>{$cantidad} gramo(s)</option>
+        <option value="{$cantidad}" {if isset($datos.azucar)}{if $datos.azucar==$cantidad}selected{/if}{/if}>{$cantidad} cucharada(s)</option>
       {/for}
     </select>
   </div>
@@ -123,19 +123,31 @@
     <select class="form-control input-lg" name="refrescos">
       <option value="">Seleccione</option>
       {for $cantidad=0 to 100}
-        <option value="{$cantidad}" {if isset($datos.cafe)}{if $datos.cafe==$cantidad}selected{/if}{/if}>{$cantidad} %</option>
+        <option value="{$cantidad}" {if isset($datos.cafe)}{if $datos.cafe==$cantidad}selected{/if}{/if}>{$cantidad}</option>
       {/for}
     </select>
   </div>
 
   <div class="form-group col-md-6">
-    <label for="lacteos">Cantidad de lácteos</label>
-    <select class="form-control input-lg" name="lacteos">
-      <option value="">Seleccione</option>
-      {for $cantidad=0 to 100}
-        <option value="{$cantidad}" {if isset($datos.lacteos)}{if $datos.lacteos==$cantidad}selected{/if}{/if}>{$cantidad}</option>
-      {/for}
-    </select>
+    <label for="lacteos" class="col-md-12">Cantidad de lácteos</label>
+    <div class="form-group col-md-6">
+      <select class="form-control input-lg" name="tipo_lacteo">
+        <option value="x">Seleccione</option>
+          <option value="1" {if isset($datos.tipo_lacteo)}{if $datos.tipo_lacteo==1}selected{/if}{/if}>Vaso</option>
+          <option value="2" {if isset($datos.tipo_lacteo)}{if $datos.tipo_lacteo==2}selected{/if}{/if}>Porción</option>
+          <option value="3" {if isset($datos.tipo_lacteo)}{if $datos.tipo_lacteo==3}selected{/if}{/if}>Ninguno</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <select class="form-control input-lg" name="cantidad_lacteo">
+        <option value="">Seleccione</option>
+        {for $cantidad=0 to 100}
+          <option value="{$cantidad}" {if isset($datos.lacteos)}{if $datos.lacteos==$cantidad}selected{/if}{/if}>{$cantidad}</option>
+        {/for}
+      </select>
+    </div>
+
+
   </div>
   <button type="submit" class="btn btn-success btn-lg">Crear sesión</button>
 </form>

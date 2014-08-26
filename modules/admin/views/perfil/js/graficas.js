@@ -91,6 +91,6 @@ $(document).ready(function(){
   graficas("cafe",100);
   graficas("azucar",100);
   graficas("refrescos",100);
-  graficas("lacteos",100);
+  graficas("cantidad_lacteo",100);
 
 });

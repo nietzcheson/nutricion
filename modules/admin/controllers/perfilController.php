@@ -352,13 +352,13 @@ class perfilController extends adminController{
     $satisfaccion_laboral = $this->getSql("satisfaccion_laboral");
     $accidentes_laborales = $this->getSql("accidentes_laborales");
     $explique_accidentes  = $this->getSql("explique_accidentes");
-    $indice_de_masa          = $this->getSql("indice_de_masa");
+    $indice_de_masa       = $this->getSql("indice_de_masa");
     $horas_sueno          = $this->getInt("horas_sueno");
     $cafe                 = $this->getInt("cafe");
     $azucar               = $this->getInt("azucar");
     $refrescos            = $this->getInt("refrescos");
-    $lacteos              = $this->getInt("lacteos");
-
+    $tipo_lacteo          = $this->getInt("tipo_lacteo");
+    $cantidad_lacteo      = $this->getInt("tipo_lacteo");
 
     $errores="";
       if ($peso=="") {
@@ -418,7 +418,10 @@ class perfilController extends adminController{
       if ($refrescos=="") {
         $errores.="Seleccione la cantidad de refrescos<br>";
       }
-      if ($lacteos=="") {
+      if ($tipo_lacteo=="") {
+        $errores.="Seleccione el tipo de lácteo<br>";
+      }
+      if ($cantidad_lacteo=="") {
         $errores.="Seleccione la cantidad de lácteos<br>";
       }
       if ($errores!=="") {
@@ -444,8 +447,9 @@ class perfilController extends adminController{
         "horas_sueno"          =>$horas_sueno,
         "cafe"                 =>$cafe,
         "azucar"               =>$azucar,
-        "refrescos"             =>$refrescos,
-        "lacteos"              =>$lacteos,
+        "refrescos"            =>$refrescos,
+        "tipo_lacteo"          =>$tipo_lacteo,
+        "cantidad_lacteo"      =>$cantidad_lacteo,
         "fecha_creacion"       =>DATE_FORMAT
       );
 
@@ -490,8 +494,8 @@ class perfilController extends adminController{
     $cafe                 = $this->getInt("cafe");
     $azucar               = $this->getInt("azucar");
     $refrescos            = $this->getInt("refrescos");
-    $lacteos              = $this->getInt("lacteos");
-
+    $tipo_lacteo          = $this->getInt("tipo_lacteo");
+    $cantidad_lacteo      = $this->getInt("cantidad_lacteo");
 
     $errores="";
       if ($peso=="") {
@@ -551,7 +555,10 @@ class perfilController extends adminController{
       if ($refrescos=="") {
         $errores.="Seleccione la cantidad de refrescos<br>";
       }
-      if ($lacteos=="") {
+      if ($tipo_lacteo=="x") {
+        $errores.="Seleccione el tipo de lácteos<br>";
+      }
+      if ($cantidad_lacteo=="x") {
         $errores.="Seleccione la cantidad de lácteos<br>";
       }
       if ($errores!=="") {
@@ -577,8 +584,9 @@ class perfilController extends adminController{
         "horas_sueno"          =>$horas_sueno,
         "cafe"                 =>$cafe,
         "azucar"               =>$azucar,
-        "refrescos"             =>$refrescos,
-        "lacteos"              =>$lacteos,
+        "refrescos"            =>$refrescos,
+        "tipo_lacteo"          =>$tipo_lacteo,
+        "cantidad_lacteo"      =>$cantidad_lacteo
       );
 
       $this->_modelo->actualizarSesion($datosEnviar);
@@ -593,6 +601,16 @@ class perfilController extends adminController{
 
   public function graficas($perfil){
     $this->_view->assign("titulo","Tabas y gráficas");
+
+    $btnHeader = array(
+      array(
+        "titulo" => "return",
+        "enlace" => "admin/perfil/sesiones/".$perfil
+      ),
+
+    );
+    $this->_view->assign("btnHeader",$btnHeader);
+
     $this->_view->setCss(array("graficas"));
     $this->_view->setJs(array("graficas"));
     $this->_view->assign("id_perfil",$perfil);

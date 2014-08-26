@@ -5,8 +5,8 @@
 </ul>
 
 <div class="page-header">
-    <a href="{$_layoutParams.root}admin/perfil/crear_sesion/{$id}" class="btn btn-success">Crear sesión</a>
-    <a href="{$_layoutParams.root}admin/perfil/graficas/{$id}" class="btn btn-danger">
+    <a href="{$_layoutParams.root}admin/perfil/crear_sesion/{$id}" class="btn btn-default">Crear sesión</a>
+    <a href="{$_layoutParams.root}admin/perfil/graficas/{$id}" class="btn btn-default">
       <span class="glyphicon glyphicon-th-list"></span> |
       <span class="glyphicon glyphicon-stats"></span> Tablas y gráficas
     </a>
